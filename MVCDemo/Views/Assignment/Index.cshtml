@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Exercises</h1>
+<div class="top-bottom-margin">
+    <a class="btn btn-primary" asp-area="" asp-controller="Assignment" asp-action="FeverCheck"> EX1 - Fever Test </a>
+    <a class="btn btn-warning" href="/Assignment/FeverCheck"> EX1 - Fever Test </a>
+
+    @Html.ActionLink("EX1 - Fever Test", "FeverCheck", "Assignment", null, new { @class = "btn btn-success" })
+</div>
+
+<div class="top-bottom-margin">
+    <a class="btn btn-success" asp-area="" asp-controller="Assignment" asp-action="GuessGame"> EX2 - Guess Number </a>
+</div>
+

@@ -1,0 +1,19 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    @{
+        string vbMessage = ViewBag.vbMSG;
+
+        string vdMessage = (string)ViewData["vdMSG"];
+        //string vdMessage_1 = (string)ViewData["vdMSG"].ToString();
+
+        string tdMessage = (string)TempData["tdMSG"];
+    }
+    <h1>ViewBag, ViewData and TempData Demo</h1>
+
+    <h3>@ViewBag.vbMSG</h3><br />
+    <h3>@ViewData["vdMSG"]</h3><br />
+    <h3>@TempData["tdMSG"]</h3>
+</div>

@@ -1,0 +1,34 @@
+﻿@model MVCDemo.Models.Fever
+
+@{
+    ViewData["Title"] = "FeverCheck";
+}
+
+<h1>Free Fever Test For You</h1>
+<h2>@Model.TestResult</h2>
+<hr />
+<div class="row"> 
+    <div class="col-md-4">
+        <form asp-action="FeverCheck">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="BTemp" class="control-label"></label>
+                <input asp-for="BTemp" class="form-control" />
+                <span asp-validation-for="BTemp" class="text-danger"></span>
+            </div>
+            @* <div class="form-group">
+                <label asp-for="TestResult" class="control-label"></label>
+                <input asp-for="TestResult" class="form-control" />
+                <span asp-validation-for="TestResult" class="text-danger"></span>
+            </div> *@
+            <div class="form-group top-bottom-margin">
+                <input type="submit" value="Check your fever" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to Assignments</a>
+</div>
+

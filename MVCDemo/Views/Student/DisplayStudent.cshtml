@@ -1,0 +1,13 @@
+﻿@model IEnumerable<MVCDemo.Models.Student>
+@{
+    ViewData["Title"] = "DisplayStudent";
+}
+
+
+@foreach (var student in Model)
+{
+    <partial name="_StudentPartial" model="student"></partial>
+    @* @await Html.PartialAsync("_StudentPartial", student) *@
+    @* @Html.Partial("_StudentPartial", student) *@
+    <hr/>
+}

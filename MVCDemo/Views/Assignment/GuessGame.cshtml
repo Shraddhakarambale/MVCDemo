@@ -1,0 +1,50 @@
+﻿@using Microsoft.AspNetCore.Http;
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor;
+
+
+@model MVCDemo.Models.GuessNumber
+@{
+    ViewData["Title"] = "GuessGame";
+}
+
+<h1>I chose a number between 1 to 500, try to guess it!</h1>
+
+<hr />
+
+<h2>@Model.Msg</h2>
+<div class="row">
+    @{
+        if(HttpContextAccessor.HttpContext.Session.GetInt32("sNumber") != null)
+        {
+                <div class="col-md-4">
+                    <form asp-action="GuessGame">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="form-group">
+                            <label asp-for="GuessNum" class="control-label"></label>
+                            <input asp-for="GuessNum" class="form-control" />
+                            <span asp-validation-for="GuessNum" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                        </div>
+                    <div class="form-group top-bottom-margin">
+                            <input type="submit" value="Try It" class="btn btn-primary" />
+                        </div>
+                    </form>
+                </div>
+        }
+        else
+        {
+            <div class="col-md-4">
+              @Html.ActionLink("Re Play", "GuessGame", "Assignment", null, new { @class = "btn btn-success" })
+            </div>
+        }
+    }
+</div>
+
+<div>
+    <a asp-action="Index">Back to Assignment</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
